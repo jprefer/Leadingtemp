@@ -1,0 +1,200 @@
+/* ==========================================================================
+   1. CORE VARIABLES & BASE STYLES
+   ========================================================================== */
+:root {
+    --primary-color: #8B0000; /* Leading Edge Red */
+    --secondary-color: #f4f4f4; /* Light Gray */
+    --accent-color: #c99700; /* Gold/Yellow */
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-family); color: var(--text-dark); line-height: 1.6; background-color: #ffffff; }
+a { text-decoration: none; color: inherit; }
+
+/* ==========================================================================
+   2. SHARED LAYOUT COMPONENTS (Header, Footer, Containers)
+   ========================================================================== */
+header { background-color: var(--primary-color); color: var(--text-light); padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+.logo { font-size: 24px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav ul li a { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+nav ul li a:hover, nav ul li a.active { color: var(--accent-color); }
+
+.page-header { background-color: var(--primary-color); color: var(--text-light); padding: 60px 20px; text-align: center; }
+.page-header h1 { font-size: 36px; text-transform: uppercase; letter-spacing: 3px; }
+
+.section-container { padding: 60px 50px; max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; color: var(--primary-color); }
+
+footer { background-color: var(--primary-color); color: var(--text-light); padding: 60px 50px 20px; }
+.footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; text-align: center; gap: 30px; }
+.footer-about { max-width: 800px; margin: 0 auto; font-size: 14px; line-height: 1.8; color: #ccc; }
+.footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; font-size: 12px; text-transform: uppercase; }
+.footer-links a:hover { color: var(--accent-color); }
+.copyright { margin-top: 40px; font-size: 12px; color: #888; }
+
+/* ==========================================================================
+   3. HOME PAGE STYLES (Rotating Hero Slider)
+   ========================================================================== */
+.hero-slider {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Smooth crossfade effect */
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensures text stays on top of the rotating images */
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+/* Slider Manual Navigation Buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.slider-btn:hover {
+    background-color: var(--accent-color); /* Turns gold on hover */
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.news-card { background-color: var(--secondary-color); border-radius: 4px; overflow: hidden; transition: transform 0.3s ease; }
+.news-card:hover { transform: translateY(-5px); }
+.news-image { height: 200px; background-color: #ccc; background-image: url('https://images.unsplash.com/photo-1570188091176-65be7d4783eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center; }
+.news-content { padding: 20px; }
+.news-date { font-size: 12px; color: #777; margin-bottom: 10px; display: block; text-transform: uppercase; }
+.news-card .news-title { font-size: 18px; font-weight: bold; line-height: 1.4; }
+.sponsors { background-color: var(--secondary-color); padding: 40px 50px; text-align: center; }
+.sponsors-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 30px; align-items: center; }
+.sponsor-item { font-size: 18px; font-weight: bold; color: #555; text-transform: uppercase; }
+
+/* ==========================================================================
+   4. ABOUT PAGE STYLES
+   ========================================================================== */
+.about-section { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+.about-text { flex: 1; min-width: 300px; font-size: 16px; line-height: 1.8; }
+.about-text p { margin-bottom: 20px; }
+.about-image { flex: 1; min-width: 300px; }
+.about-image img { width: 100%; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+/* ==========================================================================
+   5. TEAM PAGE STYLES
+   ========================================================================== */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+.team-member { text-align: center; }
+.member-photo { width: 100%; aspect-ratio: 1/1; background-color: var(--secondary-color); object-fit: cover; border-radius: 4px; margin-bottom: 15px; }
+.member-name { font-size: 20px; font-weight: bold; color: var(--primary-color); text-transform: uppercase; }
+.member-role { font-size: 14px; color: #777; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+
+/* ==========================================================================
+   6. CALENDAR PAGE STYLES
+   ========================================================================== */
+.calendar-table { width: 100%; border-collapse: collapse; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.calendar-table th, .calendar-table td { padding: 20px; text-align: left; border-bottom: 1px solid #ddd; }
+.calendar-table th { background-color: var(--primary-color); color: white; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; }
+.calendar-table tr:nth-child(even) { background-color: #fafafa; }
+.calendar-table tr:hover { background-color: #f1f1f1; }
+.event-date { font-weight: bold; color: var(--accent-color); white-space: nowrap; }
+.event-name { font-size: 18px; font-weight: bold; color: var(--primary-color); }
+.event-location { color: #666; font-size: 14px; }
+
+/* ==========================================================================
+   7. NEWS PAGE STYLES (Blog Roll)
+   ========================================================================== */
+.news-list { display: flex; flex-direction: column; gap: 30px; max-width: 900px; margin: 0 auto; }
+.news-item { border-bottom: 1px solid #eee; padding-bottom: 20px; }
+.news-item:last-child { border-bottom: none; }
+.news-meta { font-size: 13px; color: var(--accent-color); font-weight: bold; margin-bottom: 8px; text-transform: uppercase; }
+.news-item .news-title { font-size: 22px; color: var(--primary-color); margin-bottom: 10px; }
+.news-item .news-title a:hover { color: var(--accent-color); }
+.read-more { font-size: 14px; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px; }
+
+/* ==========================================================================
+   8. RESULTS PAGE STYLES
+   ========================================================================== */
+.year-block { margin-bottom: 40px; max-width: 900px; margin: 0 auto; }
+.year-title { background-color: var(--primary-color); color: white; padding: 10px 20px; font-size: 24px; margin-bottom: 20px; display: inline-block; }
+.result-item { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #ddd; }
+.result-event { font-weight: bold; font-size: 16px; color: var(--text-dark); width: 60%; }
+.result-position { font-weight: bold; color: var(--accent-color); text-transform: uppercase; text-align: right; width: 40%; }
+
+/* ==========================================================================
+   9. GALLERY PAGE STYLES
+   ========================================================================== */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+.gallery-item { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; transition: opacity 0.3s ease; cursor: pointer; }
+.gallery-item:hover { opacity: 0.8; }
+
+/* ==========================================================================
+   10. CONTACT PAGE STYLES
+   ========================================================================== */
+.contact-wrapper { max-width: 600px; margin: 0 auto; background: var(--secondary-color); padding: 40px; border-radius: 8px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-family); }
+.form-group textarea { height: 150px; resize: vertical; }
+.submit-btn { background-color: var(--primary-color); color: white; border: none; padding: 15px 30px; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; width: 100%; transition: background 0.3s; }
+.submit-btn:hover { background-color: var(--accent-color); }
+
+/* ==========================================================================
+   11. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px; }
+    nav ul { flex-wrap: wrap; justify-content: center; }
+    .hero h1 { font-size: 32px; }
+    .calendar-table th, .calendar-table td { padding: 10px; }
+    .result-item { flex-direction: column; gap: 5px; }
+    .result-position { text-align: left; }
+    .result-event, .result-position { width: 100%; }
+}

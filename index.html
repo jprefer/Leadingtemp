@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Leading Edge Sailing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Leading Edge Sailing</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Rotating Hero Slider Area -->
+    <section class="hero-slider">
+        <!-- Background Slides -->
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/hero2.jpg');"></div>
+		<div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/hero1.jpg');"></div>
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/hero3.jpg');"></div>
+        
+        <!-- Foreground Text -->
+        <div class="hero-content">
+            
+            
+        </div>
+        <!-- Manual Navigation Buttons -->
+        <button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+    
+    </section>
+    <section class="section-container">
+        <h2 class="section-title">Recent News</h2>
+        <div class="news-grid">
+            <article class="news-card">
+    			<!-- Add the style directly to the div here -->
+    			<div class="news-image" style="background-image: url('img/news1.jpg');"></div>
+    			<div class="news-content">
+        		<span class="news-date">May 28, 2026</span>
+       			 <h3 class="news-title">Razor-Thin Margins: Leading Edge Misses IMA Maxi European Championship Podium</h3>
+    			</div>
+			</article>
+            <article class="news-card"><div class="news-image"></div><div class="news-content"><span class="news-date">May 18, 2026</span><h3 class="news-title">Leading Edge Set to Defend the Championship Title at Tre Golfi Sailing Week 2026</h3></div></article>
+            <article class="news-card"><div class="news-image"></div><div class="news-content"><span class="news-date">April 2, 2026</span><h3 class="news-title">North Sound Maxi Regatta in Motion: Leading Edge Highlights</h3></div></article>
+        </div>
+    </section>
+    <section class="sponsors">
+        <h2 class="section-title" style="font-size: 24px; margin-bottom: 20px;">Proudly Sponsored By</h2>
+        <div class="sponsors-grid">
+            <div class="sponsor-item">TSI</div>
+            <div class="sponsor-item">Dickey-john</div>
+            <div class="sponsor-item">Churchill Commercial Holdings LLC</div>
+            <div class="sponsor-item">Casella</div>
+            <div class="sponsor-item">Neil's Parts</div>
+            <div class="sponsor-item">MSP</div>
+            <div class="sponsor-item">Worthington AG Parts</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h2 style="margin-bottom: 15px; color: white;">Leading Edge Sailing</h2>
+                <p>The original Leading Edge Sailing campaign kicked off in 2006 with Key West Race Week, and since then, owner and skipper Hap Fauth has had three additional racing yachts in the program. Launched in September 2019, the current Leading Edge is a Maxi 72 designed by Botin Partners in Spain and built by New England Boatworks in Rhode Island.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Follow</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="copyright">Copyright &copy; 2026 Leading Edge Sailing</div>
+        </div>
+    </footer>
+    <!-- Script for Hero Slider -->
+    <!-- Script for Hero Slider -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        let slideInterval;
+
+        function showSlide(index) {
+            // Remove active class from the current slide
+            slides[currentSlide].classList.remove('active');
+            
+            // Calculate the new index (this math safely wraps around from the end to the beginning)
+            currentSlide = (index + slides.length) % slides.length;
+            
+            // Add active class to the new slide
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Function called when a user clicks the previous or next buttons
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+            resetTimer(); // Reset the auto-timer so it doesn't double-skip
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval); // Clear the current timer
+            slideInterval = setInterval(nextSlide, 5000); // Start a fresh 5-second timer
+        }
+
+        // Start the automatic slider when the page loads
+        slideInterval = setInterval(nextSlide, 5000);
+    </script>
+</body>
+</html>
