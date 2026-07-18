@@ -232,14 +232,28 @@ footer { background-color: var(--primary-color); color: var(--text-light); paddi
    11. RESPONSIVE DESIGN
    ========================================================================== */
 @media (max-width: 768px) {
-    /* ADD position: static; to the end of this header line */
     header { flex-direction: column; gap: 15px; position: static; }
     
     .logo { text-align: center; }
+    
     nav ul { flex-wrap: wrap; justify-content: center; }
+    
     .hero h1 { font-size: 32px; }
+    
+    /* Forces the table to swipe left/right instead of stretching the page */
+    .calendar-table { 
+        display: block; 
+        width: 100%; 
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+        white-space: nowrap; 
+    }
+    
     .calendar-table th, .calendar-table td { padding: 10px; }
+    
     .result-item { flex-direction: column; gap: 5px; }
+    
     .result-position { text-align: left; }
+    
     .result-event, .result-position { width: 100%; }
 }
