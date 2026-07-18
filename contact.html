@@ -3,47 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Bella Mente Racing</title>
+    <title>Contact Us | Leading Edge Sailing</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="logo">Bella Mente Racing</div>
+        <div class="logo">Leading Edge Sailing</div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="calendar.html">Calendar</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="results.html">Results</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html" class="active">Contact Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="page-header"><h1>Contact Us</h1></div>
+        <!-- Contact Info Section -->
     <section class="section-container">
         <div class="contact-wrapper">
-            <p style="text-align: center; margin-bottom: 30px;">For press inquiries, sponsorship opportunities, or general questions, please reach out to the Bella Mente Racing team.</p>
-            <form action="#" method="POST">
-                <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required></div>
-                <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" required></div>
-                <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject"></div>
-                <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" required></textarea></div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+            <p class="contact-intro">For press inquiries, sponsorship opportunities, or general questions, please reach out to the Leading Edge Sailing team directly via email.</p>
+            
+            <div class="email-box">
+                <span class="email-icon">✉️</span>
+                <h3>Email Us</h3>
+                <!-- The "mailto:" makes it so clicking this opens the user's email app automatically -->
+                <a href="mailto:info@leadingedgesailing.com" class="email-link">info@leadingedgesailing.com</a>
+            </div>
         </div>
     </section>
-
+    
     <footer>
         <div class="footer-content">
             <div class="footer-about">
-                <h2 style="margin-bottom: 15px; color: white;">Bella Mente Racing</h2>
-                <p>The original Bella Mente Racing campaign kicked off in 2006 with Key West Race Week...</p>
+                <h2 style="margin-bottom: 15px; color: white;">Leading Edge Sailing</h2>
+                <p>The original Leading Edge Sailing campaign kicked off in 2016 with Block Island Race Week, and since then, owner and skipper Tom Sutton has added three additional racing yachts in the program. We will talk about the boats here.</p>
             </div>
-            <div class="copyright">Copyright &copy; 2026 Bella Mente Racing</div>
+            <div class="footer-links">
+               <!-- <a href="#">Follow</a>-->
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="copyright">Copyright &copy; 2026 Leading Edge Sailing</div>
         </div>
     </footer>
 </body>

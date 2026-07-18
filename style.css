@@ -178,14 +178,56 @@ footer { background-color: var(--primary-color); color: var(--text-light); paddi
 /* ==========================================================================
    10. CONTACT PAGE STYLES
    ========================================================================== */
-.contact-wrapper { max-width: 600px; margin: 0 auto; background: var(--secondary-color); padding: 40px; border-radius: 8px; }
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; }
-.form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-family); }
-.form-group textarea { height: 150px; resize: vertical; }
-.submit-btn { background-color: var(--primary-color); color: white; border: none; padding: 15px 30px; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; width: 100%; transition: background 0.3s; }
-.submit-btn:hover { background-color: var(--accent-color); }
+.contact-wrapper { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    text-align: center;
+}
 
+.contact-intro {
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: #444;
+}
+
+.email-box {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 50px 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.email-box:hover {
+    transform: translateY(-5px);
+}
+
+.email-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.email-box h3 {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.email-link {
+    font-size: 22px;
+    color: var(--accent-color); /* Uses your gold/accent color */
+    font-weight: bold;
+    word-break: break-all; /* Ensures long emails don't break the box on mobile */
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: var(--text-light);
+    text-decoration: underline;
+}
 /* ==========================================================================
    11. RESPONSIVE DESIGN
    ========================================================================== */
